@@ -36,6 +36,17 @@ class linkedList:
             array.append(current.data)
             current = current.getNext()
         return array
+    def search(self, item):
+        current = self.head
+        find = False
+        while current != None:
+            if current.data == item:
+                # return True but cann't return false value
+                find = True
+                break
+            else:
+                current = current.getNext()
+        return find
 
 n1 = Node(21)
 print(n1) # node is stored at <__main__.Node object at 0x000001CC67A18B50>>
@@ -65,3 +76,4 @@ print(myList.head)
 # print(myList.head.getNext())
 print(myList.head.getNext().getNext())
 print(myList.display())
+print(myList.search(93))
