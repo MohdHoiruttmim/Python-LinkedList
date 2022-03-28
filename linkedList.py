@@ -28,6 +28,14 @@ class linkedList:
             count += 1
             current = current.getNext()
         return count
+    def display(self):
+        current = self.head
+        array = []
+        while current != None:
+            print(current.data)
+            array.append(current.data)
+            current = current.getNext()
+        return array
 
 n1 = Node(21)
 print(n1) # node is stored at <__main__.Node object at 0x000001CC67A18B50>>
@@ -39,6 +47,7 @@ n2 = Node(10)
 n2.setNext(n1)
 print(n2.getNext())
 
+#========= START LINKED LIST =========#
 myList = linkedList()
 # print(myList.isEmpty())
 
@@ -55,3 +64,4 @@ print(myList.size())
 print(myList.head)
 # print(myList.head.getNext())
 print(myList.head.getNext().getNext())
+print(myList.display())
