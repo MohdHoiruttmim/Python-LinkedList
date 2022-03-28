@@ -47,7 +47,7 @@ class linkedList:
             else:
                 current = current.getNext()
         return find
-    def remove(self, item):
+    def remove(self, item): # under construction
         current = self.head
         if self.search(item):
             previous = None
