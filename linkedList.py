@@ -47,49 +47,31 @@ class linkedList:
             else:
                 current = current.getNext()
         return find
-    def remove(self, item): 
+    def remove(self, item):
         current = self.head
+        previous = None
+        found = False
         if self.search(item):
-            previous = None
-            while current != None:
-                if current.data == item:
-                    if current.getNext() != None:
-                        if previous != None:
-                            previous.setNext(current.getNext())
-                            break
-                        else:
-                            self.head = current.getNext()
-                            break
-                    else:
-                        previous.setNext(None)
-                        break
+            while not found:
+                if current.getData() == item:
+                    found = True
                 else:
                     previous = current
                     current = current.getNext()
-    # def remove(self, item):
-    #     current = self.head
-    #     previous = None
-    #     found = False
-    #     while not found:
-    #         if current.getData() == item:
-    #             found = True
-    #         else:
-    #             previous = current
-    #             current = current.getNext()
-    #         if previous == None:
-    #             self.head = current.getNext()
-    #         else:
-    #             previous.setNext(current.getNext())
+            if previous == None:
+                self.head = current.getNext()
+            else:
+                previous.setNext(current.getNext())
 
-n1 = Node(21)
-print(n1) # node is stored at <__main__.Node object at 0x000001CC67A18B50>>
+# n1 = Node(21)
+# print(n1) # node is stored at <__main__.Node object at 0x000001CC67A18B50>>
 # print(n1.getData()) # 21
 # print(n1.getNext()) # view next node
 
-n2 = Node(10)
+# n2 = Node(10)
 # print(n2)
-n2.setNext(n1)
-print(n2.getNext())
+# n2.setNext(n1)
+# print(n2.getNext())
 
 #========= START LINKED LIST =========#
 myList = linkedList()
@@ -109,8 +91,38 @@ print(myList.head)
 # print(myList.head.getNext())
 print(myList.head.getNext().getNext())
 print(myList.display())
-print(myList.search(93))
+print(myList.search(66))
 myList.add(66)
 print("myList before remove node",myList.display())
-myList.remove(93)
+myList.remove(66)
 print("myList after remove node",myList.display())
+
+
+
+
+
+
+
+
+
+
+# My mind is different from others.🤣
+    # def remove(self, item): 
+    #     current = self.head
+    #     if self.search(item):
+    #         previous = None
+    #         while current != None:
+    #             if current.data == item:
+    #                 if current.getNext() != None:
+    #                     if previous != None:
+    #                         previous.setNext(current.getNext())
+    #                         break
+    #                     else:
+    #                         self.head = current.getNext()
+    #                         break
+    #                 else:
+    #                     previous.setNext(None)
+    #                     break
+    #             else:
+    #                 previous = current
+    #                 current = current.getNext()
