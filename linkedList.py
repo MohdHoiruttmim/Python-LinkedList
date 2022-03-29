@@ -87,7 +87,25 @@ class linkedList:
                 temp.setNext(current)
                 previous.setNext(temp)
 
-            
+    def insertNext(self, item, newItem):
+        current = self.head
+        previous = None
+        found = False
+        if self.search(item):
+            while not found:
+                if current.data == item:
+                    found = True
+                    previous = current
+                    current = current.getNext()
+                else:
+                    current = current.getNext()
+            temp = Node(newItem)
+            if current == None:
+                previous.setNext(temp)
+            else:
+                temp.setNext(current)
+                previous.setNext(temp)
+                
 
 
 # n1 = Node(21)
@@ -126,6 +144,9 @@ myList.add(66)
 print("myList before insertPrevious node",myList.display())
 myList.insertPrevious(93,"baru")
 print("myList after insertPrevious node",myList.display())
+print("myList before insertNext node",myList.display())
+myList.insertNext(99,"baru2")
+print("myList after insertNext node",myList.display())
 
 
 
