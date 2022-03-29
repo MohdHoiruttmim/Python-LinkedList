@@ -47,14 +47,21 @@ class linkedList:
             else:
                 current = current.getNext()
         return find
-    def remove(self, item): # under construction
+    def remove(self, item): 
         current = self.head
         if self.search(item):
             previous = None
             while current != None:
                 if current.data == item:
                     if current.getNext() != None:
-                        previous.setNext(current.getNext())
+                        if previous != None:
+                            previous.setNext(current.getNext())
+                            break
+                        else:
+                            self.head = current.getNext()
+                            break
+                    else:
+                        previous.setNext(None)
                         break
                 else:
                     previous = current
@@ -104,6 +111,6 @@ print(myList.head.getNext().getNext())
 print(myList.display())
 print(myList.search(93))
 myList.add(66)
-print(myList.display())
-# print(myList.remove(93))
-# print(myList.display())
+print("myList before remove node",myList.display())
+myList.remove(93)
+print("myList after remove node",myList.display())
