@@ -15,12 +15,15 @@ class Node:
 class linkedList:
     def __init__(self):
         self.head = None
+
     def isEmpty(self):
         return self.head == None
+
     def add(self, item):
         temp = Node(item)
         temp.setNext(self.head)
         self.head = temp
+
     def size(self):
         current = self.head
         count = 0 
@@ -28,6 +31,7 @@ class linkedList:
             count += 1
             current = current.getNext()
         return count
+
     def display(self):
         current = self.head
         array = []
@@ -36,6 +40,7 @@ class linkedList:
             array.append(current.data)
             current = current.getNext()
         return array
+        
     def search(self, item):
         current = self.head
         find = False
@@ -47,6 +52,7 @@ class linkedList:
             else:
                 current = current.getNext()
         return find
+
     def remove(self, item):
         current = self.head
         previous = None
@@ -63,6 +69,27 @@ class linkedList:
             else:
                 previous.setNext(current.getNext())
 
+    def insertPrevious(self, item, newItem):
+        current = self.head
+        previous = None
+        found = False
+        if self.search(item):
+            while not found:
+                if current.data == item:
+                    found = True
+                else:
+                    previous = current
+                    current = current.getNext()
+            if previous == None:
+                self.add(newItem)
+            else:
+                temp = Node(newItem)
+                temp.setNext(current)
+                previous.setNext(temp)
+
+            
+
+
 # n1 = Node(21)
 # print(n1) # node is stored at <__main__.Node object at 0x000001CC67A18B50>>
 # print(n1.getData()) # 21
@@ -78,25 +105,27 @@ myList = linkedList()
 # print(myList.isEmpty())
 
 myList.add(99) # adding item to node
-print(myList.isEmpty())
-print(myList.head)
+# print(myList.isEmpty())
+# print(myList.head)
 
 myList.add(93)
-print(myList.head)
-print(myList.head.data)
+# print(myList.head)
+# print(myList.head.data)
 
 myList.add(97)
-print(myList.size())
-print(myList.head)
+# print(myList.size())
+# print(myList.head)
 # print(myList.head.getNext())
-print(myList.head.getNext().getNext())
-print(myList.display())
-print(myList.search(66))
+# print(myList.head.getNext().getNext())
+# print(myList.display())
+# print(myList.search(66))
 myList.add(66)
-print("myList before remove node",myList.display())
-myList.remove(66)
-print("myList after remove node",myList.display())
-
+# print("myList before remove node",myList.display())
+# myList.remove(66)
+# print("myList after remove node",myList.display())
+print("myList before insertPrevious node",myList.display())
+myList.insertPrevious(93,"baru")
+print("myList after insertPrevious node",myList.display())
 
 
 
